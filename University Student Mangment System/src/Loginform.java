@@ -1,9 +1,13 @@
+
+import com.mysql.cj.protocol.Resultset;
+import java.sql.Statement;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package university.student.mangment.system.jframe;
+
 
 /**
  *
@@ -14,8 +18,13 @@ public class Loginform extends javax.swing.JFrame {
     /**
      * Creates new form Loginform
      */
+    conection conn = null;
+    Statement stmt =null;
+    Resultset rs = null;
     public Loginform() {
+        super("Login");
         initComponents();
+        conn = databaseConnection.connection();
     }
 
     /**
@@ -85,7 +94,12 @@ public class Loginform extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Froget Password");
+        jButton3.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -165,6 +179,11 @@ public class Loginform extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ruwan Bandara
  */
-public class databseConnection {
+class conection {
     final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     final static String DB_URL = "jdbc:mysql://localhost:3306/universitystudentmangmentsystem";
     
@@ -24,7 +24,8 @@ public class databseConnection {
     public static Connection connection(){
         try{
             Class.forName(JDBC_DRIVER);
-            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Connection conn;
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
             
             return conn;
         }catch(ClassNotFoundException | SQLException e){
@@ -35,3 +36,5 @@ public class databseConnection {
     }
      
 }
+
+    
